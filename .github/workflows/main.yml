@@ -1,4 +1,6 @@
-name: Build dashboads
+name: Build dashboards
+
+on:
   push:
     branches: [ master ]
 
