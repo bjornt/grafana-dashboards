@@ -14,15 +14,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        name: Checkout
 
       - name: Build dashboards
         run: |
           python3 -m venv .ve
           .ve/bin/pip3 install grafanalib
           .ve/bin/generate-dashboard -o temperature.json temperature.dashboard.py
-
-      - name: Archive dashboards
-        uses: actions/upload-artifact@v2
-        with:
-          name: dashboards
-          path: *.json
