@@ -21,3 +21,8 @@ jobs:
           python3 -m venv .ve
           .ve/bin/pip3 install grafanalib
           .ve/bin/generate-dashboard -o temperature.json temperature.dashboard.py
+      - name: Archive dashboards
+        uses: actions/upload-artifact@v2
+        with:
+            name: dashboards
+            path: temperature.json
